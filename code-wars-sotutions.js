@@ -29,3 +29,19 @@ function likes(names) {
      return `${names[0]}, ${names[1]} and ${names.length - 2} others like this`
    }
 }
+
+//3
+// created a shallow copy with the repeated values and then filtered it to compare to the other values since that would be the different one
+function findUniq(arr) {
+ let repeat = arr.filter((item, index) => arr.indexOf(item) !== index)
+  return arr.filter((item)=> item !== repeat[0])[0]
+}
+
+//4
+//created two versions of the array one with even numbers and one with odd and then compared their lengths 
+//whichever was shorter had the outlier so i printed that number out
+function findOutlier(integers){
+  let even = integers.filter(num => num % 2 === 0);
+  let odd = integers.filter(num => num % 2 !== 0)
+  return even.length > odd.length ? odd[0] : even[0]
+}
