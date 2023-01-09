@@ -45,3 +45,38 @@ function findOutlier(integers){
   let odd = integers.filter(num => num % 2 !== 0)
   return even.length > odd.length ? odd[0] : even[0]
 }
+//5
+// spit the string into an array of lower case letters and filtered it so that only a dublicate goes into the new filtered
+function duplicateCount(text){
+  return text.toLowerCase().split('').filter((item, index, arr) => {
+    return arr.indexOf(item) !== index && arr.lastIndexOf(item) === index;
+  }).length;
+}
+
+//6
+//loop through the array and if the current num isnt 0, then you added it to the array and then you add the 0 numbers
+function moveZeros(arr) {
+  let count = 0;
+  
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== 0) {
+      arr[count++] = arr[i];
+    }
+  }
+
+  for (let i = count; i < arr.length; i++) {
+    arr[i] = 0;
+  }
+  
+  return arr;
+};
+
+//7
+//you make the string into an arr so you can use map on it by splitting it and then use substr(1) to remove the first letter and then add the rest
+function pigIt(str){
+  const arr = str.split(' ')
+  return arr.map((word) => {
+      return word.match(/[A-z]/i)
+        ? `${word.substr(1)}${word.substr(0, 1)}ay`
+        : word}).join(' ')
+}
